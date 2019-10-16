@@ -77,6 +77,7 @@ public class DoctorSearchController {
             MyUtils.getParam().put("patientInfos", patientInfos);
             MyUtils.getParam().put("success1", answerData_S.isSuccess());
             ChangeView changeView = new ChangeView("DoctorViews/DoctorSearchResult.fxml", "查询结果", event);
+
         }
 
     }

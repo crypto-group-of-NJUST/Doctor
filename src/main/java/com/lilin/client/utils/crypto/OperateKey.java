@@ -3,6 +3,7 @@ package com.lilin.client.utils.crypto;
 
 import com.lilin.client.crypto.SM2ClientKey;
 import com.lilin.client.utils.FileUtil;
+import com.sun.istack.internal.NotNull;
 import org.bouncycastle.crypto.AsymmetricCipherKeyPair;
 import org.bouncycastle.crypto.params.ECPrivateKeyParameters;
 import org.bouncycastle.crypto.params.ECPublicKeyParameters;
@@ -14,7 +15,10 @@ import org.zz.gmhelper.SM2Util;
 
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
 import java.security.Security;
+import java.security.spec.InvalidKeySpecException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,6 +74,51 @@ public class OperateKey {
             e.printStackTrace();
         }
     }
+    /**
+     * 转化SM2的公钥
+     * @param publicKey
+     * @return
+     */
+    @NotNull
+    public static BCECPublicKey toSM2PublicKey(byte[] publicKey){
+        if(publicKey==null){
 
+            return null;
+        }
+        try {
+            BCECPublicKey sm2PubKey = BCECUtil.convertX509ToECPublicKey(publicKey);
+            return sm2PubKey;
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 转换SM2的私钥
+     * @param privateKey
+     * @return
+     */
+    @NotNull
+    public static BCECPrivateKey toSM2PrivateKey(byte[] privateKey){
+        if(privateKey==null){
+            return null;
+        }
+        try {
+            BCECPrivateKey sm2PriKey = BCECUtil.convertPKCS8ToECPrivateKey(privateKey);
+            return sm2PriKey;
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
 }

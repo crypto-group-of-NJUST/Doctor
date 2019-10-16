@@ -1,5 +1,6 @@
 package com.lilin.client.pojo_contr;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Data;
 
 import java.math.BigInteger;
@@ -24,4 +25,6 @@ public class VisitInfo {
     private String dPk;
     private String signature;
     private String gender;
+    @JSONField(serialize =false)
+    private String time;
 }

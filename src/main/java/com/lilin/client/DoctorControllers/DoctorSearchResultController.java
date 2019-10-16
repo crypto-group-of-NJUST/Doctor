@@ -14,7 +14,10 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.io.IOException;
 import java.math.BigInteger;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author lilin
@@ -33,7 +36,7 @@ public class DoctorSearchResultController {
     private TableColumn<VisitInfo, String> conditionDescriptionCol;
 
     @FXML
-    private TableColumn<VisitInfo, BigInteger> dateCol;
+    private TableColumn<VisitInfo, String> dateCol;
 
     @FXML
     private TableColumn<VisitInfo, String> medicineCol;
@@ -73,13 +76,21 @@ public class DoctorSearchResultController {
 
 
             } else {
-                ObservableList<VisitInfo> patientInfos1 = FXCollections.observableArrayList(patientInfo);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+                List<VisitInfo> collect = patientInfo.stream()
+                        .map(m -> {
+                            m.setTime(dateFormat.format(new Date(m.getVisitTime().longValue())));
+                            return m;
+                        })
+                        .collect(Collectors.toList());
+
+                ObservableList<VisitInfo> patientInfos1 = FXCollections.observableArrayList(collect);
                 nameCol.setCellValueFactory(new PropertyValueFactory<>("patientName"));
                 idNumberCol.setCellValueFactory(new PropertyValueFactory<>("patientIdNumber"));
                 sexCol.setCellValueFactory(new PropertyValueFactory<>("gender"));
                 conditionDescriptionCol.setCellValueFactory(new PropertyValueFactory<>("conditionDescription"));
                 medicineCol.setCellValueFactory(new PropertyValueFactory<>("medication"));
-                dateCol.setCellValueFactory(new PropertyValueFactory<>("visitTime"));
+                dateCol.setCellValueFactory(new PropertyValueFactory<>("time"));
                 ageCol.setCellValueFactory(new PropertyValueFactory<>("age"));
                 orderCol.setCellFactory((col) -> {
                     TableCell<VisitInfo, String> cell = new TableCell<VisitInfo, String>() {
@@ -115,16 +126,16 @@ public class DoctorSearchResultController {
                     return cell;
                 });
                 dateCol.setCellFactory((col) -> {
-                    TableCell<VisitInfo, BigInteger> cell = new TableCell<VisitInfo, BigInteger>() {
+                    TableCell<VisitInfo, String> cell = new TableCell<VisitInfo, String>() {
                         @Override
-                        public void updateItem(BigInteger item, boolean empty) {
+                        public void updateItem(String item, boolean empty) {
                             super.updateItem(item, empty);
                             this.setText(null);
                             this.setGraphic(null);
 
                             if (!empty) {
-                                BigInteger visitTime = this.getTableView().getItems().get(this.getIndex()).getVisitTime();
-                                this.setText(String.valueOf(visitTime));
+                                String visitTime = this.getTableView().getItems().get(this.getIndex()).getTime();
+                                this.setText(visitTime);
                             }
                         }
                     };
@@ -187,7 +198,7 @@ public class DoctorSearchResultController {
                             this.setGraphic(null);
 
                             if (!empty) {
-                                String doctor = this.getTableView().getItems().get(this.getIndex()).getPatientIdNumber();
+                                String doctor = this.getTableView().getItems().get(this.getIndex()).getGender();
                                 this.setText(String.valueOf(doctor));
                             }
                         }
@@ -223,6 +234,7 @@ public class DoctorSearchResultController {
     }
     @FXML
     public void handleClickBack2(ActionEvent event)throws  IOException{
+
         ChangeView changeView =new ChangeView("DoctorViews/DoctorSearch.fxml","查询", event);
     }
 }

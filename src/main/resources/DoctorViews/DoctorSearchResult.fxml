@@ -36,9 +36,9 @@
             <TableColumn fx:id="idNumberCol" editable="false" prefWidth="168.0" sortable="false" text="身份证号" />
             <TableColumn fx:id="sexCol" editable="false" prefWidth="66.0" sortable="false" text="性别" />
             <TableColumn fx:id="ageCol" editable="false" prefWidth="74.0" sortable="false" text="年龄" />
-           <TableColumn fx:id="dateCol" editable="false" minWidth="0.0" prefWidth="82.0" sortable="false" text="就诊时间" />
-            <TableColumn fx:id="medicineCol" editable="false" minWidth="0.0" prefWidth="127.0" sortable="false" text="处方" />
-            <TableColumn fx:id="conditionDescriptionCol" editable="false" prefWidth="211.0" sortable="false" text="诊断记录" />
+           <TableColumn fx:id="dateCol" editable="false" minWidth="0.0" prefWidth="96.0" sortable="false" text="就诊时间" />
+            <TableColumn fx:id="medicineCol" editable="false" minWidth="0.0" prefWidth="113.0" sortable="false" text="处方" />
+            <TableColumn fx:id="conditionDescriptionCol" editable="false" prefWidth="217.0" sortable="false" text="诊断记录" />
 
 
 
