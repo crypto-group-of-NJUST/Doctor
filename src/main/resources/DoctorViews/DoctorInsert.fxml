@@ -10,12 +10,12 @@
 
 <AnchorPane prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lilin.client.DoctorControllers.DoctorInsertController">
    <children>
-      <Button fx:id="back2" layoutX="823.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleClickBack2" prefHeight="32.0" prefWidth="65.0" text="返回">
+      <Button fx:id="back2" layoutX="793.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleClickBack2" prefHeight="32.0" prefWidth="95.0" text="返回">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="submit2" layoutX="733.0" layoutY="20.0" mnemonicParsing="false" onAction="#handleClickSubmit2" prefHeight="32.0" prefWidth="65.0" text="提交">
+      <Button fx:id="submit2" layoutX="663.0" layoutY="19.0" mnemonicParsing="false" onAction="#handleClickSubmit2" prefHeight="35.0" prefWidth="95.0" text="提交">
          <font>
             <Font size="16.0" />
          </font>
@@ -25,7 +25,7 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Label layoutX="97.0" layoutY="128.0" prefHeight="27.0" prefWidth="65.0" text="姓  名">
+      <Label layoutX="87.0" layoutY="128.0" prefHeight="27.0" prefWidth="72.0" text="姓  名">
          <font>
             <Font size="21.0" />
          </font>
@@ -45,7 +45,7 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <Label layoutX="91.0" layoutY="264.0" prefHeight="27.0" prefWidth="78.0" text="科   室">
+      <Label layoutX="84.0" layoutY="264.0" prefHeight="27.0" prefWidth="78.0" text="科   室">
          <font>
             <Font size="21.0" />
          </font>
@@ -55,12 +55,12 @@
             <Font size="21.0" />
          </font>
       </Label>
-      <TextField fx:id="userName" layoutX="162.0" layoutY="128.0" prefHeight="27.0" prefWidth="105.0" editable="false"/>
-      <TextField fx:id="age" layoutX="383.0" layoutY="128.0" prefHeight="27.0" prefWidth="105.0" editable="false"/>
-      <TextField fx:id="sex" layoutX="620.0" layoutY="128.0" prefHeight="27.0" prefWidth="89.0"  editable="false"/>
-      <TextField fx:id="idNumber" layoutX="177.0" layoutY="194.0" prefHeight="27.0" prefWidth="251.0" editable="false"/>
-      <TextField fx:id="patientID" layoutX="571.0" layoutY="194.0" prefHeight="27.0" prefWidth="238.0" editable="false"/>
-      <TextField fx:id="department" layoutX="177.0" layoutY="264.0" prefHeight="27.0" prefWidth="105.0" editable="false"/>
+      <TextField fx:id="userName" editable="false" layoutX="162.0" layoutY="128.0" prefHeight="27.0" prefWidth="105.0" />
+      <TextField fx:id="age"  layoutX="383.0" layoutY="128.0" prefHeight="27.0" prefWidth="105.0" />
+      <TextField fx:id="sex"  layoutX="620.0" layoutY="128.0" prefHeight="27.0" prefWidth="181.0" />
+      <TextField fx:id="idNumber" editable="false" layoutX="177.0" layoutY="194.0" prefHeight="27.0" prefWidth="251.0" />
+      <TextField fx:id="patientID"  layoutX="571.0" layoutY="194.0" prefHeight="27.0" prefWidth="234.0" />
+      <TextField fx:id="department" editable="false" layoutX="177.0" layoutY="264.0" prefHeight="27.0" prefWidth="105.0" />
       <Label layoutX="82.0" layoutY="194.0" prefHeight="27.0" prefWidth="95.0" text="身份证号">
          <font>
             <Font size="21.0" />
@@ -85,6 +85,5 @@
          </font>
       </Label>
       <TextArea fx:id="medicine" layoutX="230.0" layoutY="417.0" prefHeight="58.0" prefWidth="575.0" />
-      <Button fx:id="add" layoutX="722.0" layoutY="78.0" mnemonicParsing="false" onAction="#handleAdd" text="自动填充当前病人已知信息" />
    </children>
 </AnchorPane>

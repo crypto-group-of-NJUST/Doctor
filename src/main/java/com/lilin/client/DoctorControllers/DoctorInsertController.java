@@ -80,7 +80,7 @@ public class DoctorInsertController {
         ChangeView changeView = new ChangeView("DoctorViews/DoctorIndex.fxml","主界面",event);
     }
 @FXML
- void handleAdd(ActionEvent event)throws IOException{
+ void initialize(){
         PatientInfo patientInfo = (PatientInfo) MyUtils.getParam().get("patientInfo");
         // 设置病历信息表的自动填充字段
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
@@ -93,6 +93,24 @@ public class DoctorInsertController {
         department.setText(doctorInfo.getDepartment());
         age.setText(patientInfo.getAge());
         patientID.setText(patientInfo.getMedicareCard());
+
+        date.setDisable(true);
+        doctor.setDisable(true);
+        idNumber.setDisable(true);
+        userName.setDisable(true);
+        department.setDisable(true);
+        if(patientInfo.getAge()!=null){
+            age.setDisable(true);
+        }
+        if(patientInfo.getGender()!=null){
+            sex.setDisable(true);
+        }
+        if(patientInfo.getMedicareCard()!=null){
+            patientID.setDisable(true);
+        }
+
+
+
 }
     @FXML
     void handleClickSubmit2(ActionEvent event) throws Exception {
@@ -137,6 +155,7 @@ public class DoctorInsertController {
                 System.out.println(answerDataInsert.getAnswerInfo());
 
                 ShowAlert showAlert = new ShowAlert("病人就诊记录已提交");
+                ChangeView changeView =new ChangeView("DoctorViews/DoctorIndex.fxml","主界面",event);
             }
 
         }

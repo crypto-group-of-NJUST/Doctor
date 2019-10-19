@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lilin.client.Register.RegisterController">
     <children>
-        <Button fx:id="Register" layoutX="709.0" layoutY="362.0" mnemonicParsing="false" onAction="#handleClickRegister" prefHeight="39.0" prefWidth="133.0" text="注   册" textFill="#37ad75">
+        <Button fx:id="Register" layoutX="408.0" layoutY="360.0" mnemonicParsing="false" onAction="#handleClickRegister" prefHeight="39.0" prefWidth="163.0" text="注   册" textFill="#37ad75">
             <font>
                 <Font size="15.0" />
             </font></Button>

@@ -14,19 +14,19 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <ComboBox fx:id="patientList" layoutX="484.0" layoutY="99.0" onMouseClicked="#setValue" prefHeight="27.0" prefWidth="154.0">
+      <ComboBox fx:id="patientList" layoutX="484.0" layoutY="99.0" prefHeight="27.0" prefWidth="154.0">
          <value>
             <String fx:value="请选择待接诊病人" />
          </value>
       </ComboBox>
-      <Button fx:id="jiezhen" layoutX="422.0" layoutY="388.0" mnemonicParsing="false" onAction="#handleClickJiezhen" text="确认接诊">
+      <Button fx:id="jiezhen" layoutX="390.0" layoutY="363.0" mnemonicParsing="false" onAction="#handleClickJiezhen" prefHeight="44.0" prefWidth="189.0" text="确认接诊">
          <font>
             <Font size="23.0" />
          </font>
       </Button>
-      <Button fx:id="back" layoutX="794.0" layoutY="432.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="27.0" prefWidth="78.0" text="返回">
+      <Button fx:id="back" layoutX="784.0" layoutY="442.0" mnemonicParsing="false" onAction="#handleClickBack" prefHeight="44.0" prefWidth="108.0" text="返回">
          <font>
-            <Font size="23.0" />
+            <Font size="17.0" />
          </font>
       </Button>
    </children>

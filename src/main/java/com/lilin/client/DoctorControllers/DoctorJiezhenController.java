@@ -12,9 +12,7 @@ import com.lilin.client.connection.ConnectionWithServer;
 import com.lilin.client.connection.TransDataWithServer;
 import com.lilin.client.crypto.SM2ClientKey;
 import com.lilin.client.pojo_contr.*;
-import com.lilin.client.utils.ConnectionWithServerFactory;
-import com.lilin.client.utils.MyUtils;
-import com.lilin.client.utils.TransDataWithServerFactory;
+import com.lilin.client.utils.*;
 import com.lilin.client.utils.crypto.OperateKey;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -109,8 +107,6 @@ public class DoctorJiezhenController {
             System.out.println(patientInfo);
             System.out.println(trans.getAnswerInfo());
 
-
-
             ShowAlert showAlert = new ShowAlert("接诊成功");
             ChangeView changeView = new ChangeView("DoctorViews/DoctorInsert.fxml","病历信息完善", event);
         }
@@ -124,10 +120,11 @@ public class DoctorJiezhenController {
     }
 
 
-    public  void setValue() throws Exception {
+    public  void initialize() throws Exception {
         DoctorInfo doctorInfo = (DoctorInfo) param.get("doctorInfo");
         Integer opCode = 32, answerCode = 42;
-        ClientData clientData = new ClientData(opCode, doctorInfo.getDepartment());
+        NewPair pair = new NewPair(doctorInfo.getDepartment(),doctorInfo.getIdNumber());
+        ClientData clientData = new ClientData(opCode, JSON.toJSONString(pair));
         AnswerData answerData = tdws.trans(clientData, answerCode);
         String usersJSON = answerData.getAnswerInfo();
          List<Waiting> users = JSON.parseArray(usersJSON, Waiting.class);

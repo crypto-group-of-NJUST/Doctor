@@ -13,7 +13,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lilin.client.Main.MainController">
    <children>
-      <Button fx:id="login" layoutX="693.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleClickLogIn" prefHeight="39.0" prefWidth="124.0" text="登录" textFill="#37ad75">
+      <Button fx:id="login" layoutX="401.0" layoutY="387.0" mnemonicParsing="false" onAction="#handleClickLogIn" prefHeight="39.0" prefWidth="160.0" text="登录" textFill="#37ad75">
          <font>
             <Font size="17.0" />
          </font></Button>
@@ -31,8 +31,8 @@
          </font></Label>
       <TextField fx:id="idNumber" layoutX="401.0" layoutY="203.0" prefHeight="27.0" prefWidth="200.0" />
       <PasswordField fx:id="passwordField" layoutX="401.0" layoutY="261.0" prefHeight="27.0" prefWidth="200.0" />
-      <Button fx:id="register" layoutX="47.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleClickSubmitRegister" text="还没有账号？点击这里注册" />
-      <Button fx:id="logout" layoutX="815.0" layoutY="454.0" mnemonicParsing="false" onAction="#handleClickLogOut" prefHeight="39.0" prefWidth="77.0" text="退出">
+      <Button fx:id="register" layoutX="20.0" layoutY="473.0" mnemonicParsing="false" onAction="#handleClickSubmitRegister" text="还没有账号？点击这里注册" />
+      <Button fx:id="logout" layoutX="789.0" layoutY="454.0" mnemonicParsing="false" onAction="#handleClickLogOut" prefHeight="39.0" prefWidth="103.0" text="退出">
          <font>
             <Font size="12.0" />
          </font>
