@@ -16,4 +16,5 @@ public class PasswordModify {
     private String idNumber;
     private String oldPassword;
     private String newPassword;
+    private String department;
 }

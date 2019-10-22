@@ -8,12 +8,11 @@ package com.lilin.client.DoctorControllers;
 import com.alibaba.fastjson.JSON;
 import com.lilin.client.Class.ChangeView;
 import com.lilin.client.Class.ShowAlert;
-import com.lilin.client.connection.ConnectionWithServer;
 import com.lilin.client.connection.TransDataWithServer;
-import com.lilin.client.crypto.SM2ClientKey;
 import com.lilin.client.pojo_contr.*;
-import com.lilin.client.utils.*;
-import com.lilin.client.utils.crypto.OperateKey;
+import com.lilin.client.utils.MyUtils;
+import com.lilin.client.utils.NewPair;
+import com.lilin.client.utils.TransDataWithServerFactory;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -77,9 +76,7 @@ public class DoctorJiezhenController {
         private TextField age;
 
 
-    private ConnectionWithServer cws = ConnectionWithServerFactory.getConnectionWithServer();
     private  TransDataWithServer tdws = TransDataWithServerFactory.getTransDataWithServer();
-    private SM2ClientKey sm2ClientKey= OperateKey.getSM2ClientKeyFromFile();
     private Map<String,Object> param = MyUtils.getParam();
 
 
@@ -120,20 +117,35 @@ public class DoctorJiezhenController {
     }
 
 
-    public  void initialize() throws Exception {
-        DoctorInfo doctorInfo = (DoctorInfo) param.get("doctorInfo");
-        Integer opCode = 32, answerCode = 42;
-        NewPair pair = new NewPair(doctorInfo.getDepartment(),doctorInfo.getIdNumber());
-        ClientData clientData = new ClientData(opCode, JSON.toJSONString(pair));
-        AnswerData answerData = tdws.trans(clientData, answerCode);
-        String usersJSON = answerData.getAnswerInfo();
-         List<Waiting> users = JSON.parseArray(usersJSON, Waiting.class);
-         MyUtils.getParam().put("waitings",users);
-        if (!users.isEmpty()) {
-            for (int i = 0; i < users.size(); i++) {
-                patientList.getItems().add(users.get(i).getUserName());
+    public  void initialize() {
+        patientList.setOnMouseClicked(e->{
+
+            patientList.getItems().remove(0,patientList.getItems().size());
+
+            patientList.getItems().removeAll();
+            DoctorInfo doctorInfo = (DoctorInfo) param.get("doctorInfo");
+            Integer opCode = 32, answerCode = 42;
+            NewPair pair = new NewPair(doctorInfo.getDepartment(),doctorInfo.getIdNumber());
+            ClientData clientData = new ClientData(opCode, JSON.toJSONString(pair));
+            AnswerData answerData = null;
+            try {
+                answerData = tdws.trans(clientData, answerCode);
+            } catch (Exception ex) {
+                ex.printStackTrace();
             }
-        }
+            String usersJSON = answerData.getAnswerInfo();
+            List<Waiting> users = JSON.parseArray(usersJSON, Waiting.class);
+//        if (MyUtils.getParam().containsKey("waitings")) {
+//            MyUtils.getParam().remove("waitings");
+//        }
+            MyUtils.getParam().put("waitings",users);
+            if (!users.isEmpty()) {
+                for (int i = 0; i < users.size(); i++) {
+                    patientList.getItems().add(users.get(i).getUserName());
+                }
+            }
+        });
+
 
     }
 

@@ -24,7 +24,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Label layoutX="229.0" layoutY="250.0" prefHeight="29.0" prefWidth="110.0" text="病人姓名">
+      <Label fx:id="patName" layoutX="229.0" layoutY="250.0" prefHeight="29.0" prefWidth="149.0" text="病人身份证号">
          <font>
             <Font size="24.0" />
          </font>
@@ -37,7 +37,7 @@
          </font>
       </Label>
       <TextField fx:id="beginAge" layoutX="418.0" layoutY="169.0" prefHeight="27.0" prefWidth="64.0" />
-      <TextField fx:id="patientName" layoutX="413.0" layoutY="251.0" prefHeight="27.0" prefWidth="214.0" />
+      <TextField fx:id="patId" layoutX="413.0" layoutY="251.0" prefHeight="27.0" prefWidth="214.0" />
       <Label layoutX="506.0" layoutY="167.0" prefHeight="29.0" prefWidth="29.0" text="-">
          <font>
             <Font size="24.0" />

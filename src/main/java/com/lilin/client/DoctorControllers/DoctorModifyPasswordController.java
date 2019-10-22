@@ -59,7 +59,7 @@ public class DoctorModifyPasswordController {
             System.out.println(confirmPassword.getText());
 
             int opCode =18,answerCode=28;
-            PasswordModify modify = new PasswordModify("dt", doctorInfo.getIdNumber(),prePassword.getText(),newPassword.getText());
+            PasswordModify modify = new PasswordModify("dt", doctorInfo.getIdNumber(),prePassword.getText(),newPassword.getText(),doctorInfo.getDepartment());
             AnswerData answerData = MyUtils.transData(tdws, modify, opCode, answerCode);
             System.out.println(answerData.getAnswerInfo());
             if(answerData.isSuccess()){

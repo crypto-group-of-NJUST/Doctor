@@ -42,6 +42,8 @@ public class DoctorSearchController {
 
     @FXML
     private Button back;
+    @FXML
+    private TextField patId;
 
 
     private TransDataWithServer tdws = TransDataWithServerFactory.getTransDataWithServer();
@@ -58,11 +60,9 @@ public class DoctorSearchController {
              QueryConditions queryConditions = new QueryConditions();//初始化一个条件类
              //开始加入查询条件
              queryConditions.setDoctorIdNumber(doctorInfo.getIdNumber());
-             queryConditions.setDoctorName(doctorInfo.getUserName());
              queryConditions.setDepartment(doctorInfo.getDepartment());
-             if(!patientName.getText().equals("")){
-                 queryConditions.setPatientName(patientName.getText());
-             }
+             queryConditions.setPatientIdNumber(patId.getText().equals("")?null:patId.getText());
+
              if(!beginAge.getText().equals("")&&!endAge.getText().equals("")){
                  queryConditions.setAgeInterval(new Pair<>(BigInteger.valueOf(Integer.parseInt(beginAge.getText())), BigInteger.valueOf(Integer.parseInt(endAge.getText()))));
 

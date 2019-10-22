@@ -1,13 +1,11 @@
 package com.lilin.client.pojo_contr;
 
-import com.alibaba.fastjson.annotation.JSONField;
 import com.lilin.client.utils.Pair;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigInteger;
-import java.util.List;
 
 /**
  * @author L
@@ -22,9 +20,6 @@ public class QueryConditions {
     private Pair<BigInteger, BigInteger> ageInterval;
     private String patientIdNumber;
     private String doctorIdNumber;
-    private String patientName;
     private String doctorName;
     private String department;
-    @JSONField(serialize = false)
-    private List<String> pids;
 }
