@@ -33,10 +33,10 @@ public class OperateKey {
     }
     public static SM2ClientKey getSM2ClientKeyFromFile(){
         try {
-            byte[] sm2PubKeyByte =  FileUtil.readFile("/Users/lilin/Desktop/Doctor/SM2KeyPair/ec.x509.pub.der");
+            byte[] sm2PubKeyByte =  FileUtil.readFile("SM2KeyPair/ec.x509.pub.der");
             BCECPublicKey sm2PubKey = BCECUtil.convertX509ToECPublicKey(sm2PubKeyByte);
 
-            byte[] sm2PriKeyByte = FileUtil.readFile("/Users/lilin/Desktop/Doctor/SM2KeyPair/ec.pkcs8.pri.der");
+            byte[] sm2PriKeyByte = FileUtil.readFile("SM2KeyPair/ec.pkcs8.pri.der");
             BCECPrivateKey sm2PriKey = BCECUtil.convertPKCS8ToECPrivateKey(sm2PriKeyByte);
 
             return new SM2ClientKey(sm2PubKey,sm2PriKey);

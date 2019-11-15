@@ -104,7 +104,6 @@ public class DoctorJiezhenController {
             System.out.println(patientInfo);
             System.out.println(trans.getAnswerInfo());
 
-            ShowAlert showAlert = new ShowAlert("接诊成功");
             ChangeView changeView = new ChangeView("DoctorViews/DoctorInsert.fxml","病历信息完善", event);
         }
 

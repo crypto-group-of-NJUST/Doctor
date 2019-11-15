@@ -37,6 +37,8 @@ public class ClientApplication extends Application {
             primaryStage.setScene(scene);
             primaryStage.setResizable(false);
             primaryStage.setTitle("医生客户端");
+            primaryStage.setX(970);
+            primaryStage.setY(220);
 
 
 

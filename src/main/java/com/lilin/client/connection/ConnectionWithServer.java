@@ -78,7 +78,7 @@ public class ConnectionWithServer {
                 bw.flush();
             }
             sum++;
-        } while (!an && sum <= 5);
+        } while (sum <= 5 &&!an );
         connect=an;
         return an;
     }
