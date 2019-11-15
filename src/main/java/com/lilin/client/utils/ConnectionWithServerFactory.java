@@ -11,9 +11,10 @@ public class ConnectionWithServerFactory {
     private ConnectionWithServerFactory(){
 
     }
-    public static ConnectionWithServer getConnectionWithServer(){
+    public static ConnectionWithServer getConnectionWithServer() throws Exception {
         if (connectionWithServer==null) {
             connectionWithServer=new ConnectionWithServer();
+            connectionWithServer.connect();
             return connectionWithServer;
         }else {
             return connectionWithServer;
